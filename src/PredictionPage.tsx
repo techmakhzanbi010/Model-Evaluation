@@ -1,7 +1,8 @@
 import { useState, type FormEvent } from "react";
 import "./App.css";
 
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = "https://productclassificationml-test-production.up.railway.app";
+// const API_BASE_URL = "http://localhost:8000";
 
 interface ProminentFeature {
     attribute: string;
@@ -161,8 +162,8 @@ export default function PredictionPage() {
                                 <span className="result-label">Predicted Label</span>
                                 <span
                                     className={`status-badge ${result.predicted_label.toLowerCase() === "rejected"
-                                            ? "badge-rejected"
-                                            : "badge-selected"
+                                        ? "badge-rejected"
+                                        : "badge-selected"
                                         }`}
                                 >
                                     {result.predicted_label}
