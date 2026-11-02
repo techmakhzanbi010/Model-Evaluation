@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from "react";
 import "./App.css";
 
-const API_BASE_URL = "https://productclassificationml-test-production.up.railway.app";
+const API_BASE_URL = "https://productclassificationml-test-production-b06c.up.railway.app";
 // const API_BASE_URL = "http://localhost:8000";
 
 interface ProminentFeature {
@@ -20,6 +20,7 @@ interface PredictionResponse {
     most_prominent_feature: ProminentFeature | null;
     summary: string;
     features_used: Record<string, string | number | boolean | null>;
+    strength_score: string;
 }
 
 function formatFeatureValue(key: string, value: unknown): string {
@@ -130,9 +131,9 @@ export default function PredictionPage() {
                     <section className="section-block">
                         <div className="section-header">
                             <h2>Extracted Features</h2>
-                            <span className="count-pill">
+                            {/* <span className="count-pill">
                                 {Object.keys(result.features_used).length}
-                            </span>
+                            </span> */}
                         </div>
                         <div className="features-grid">
                             {Object.entries(result.features_used).map(([key, val]) => (
@@ -178,7 +179,8 @@ export default function PredictionPage() {
                                         {result.confidence_level.toUpperCase()}
                                     </span>
                                     <span className="confidence-prob">
-                                        {formattedProbability}
+                                        {result.strength_score}
+                                        {/* {formattedProbability} */}
                                     </span>
                                 </div>
                             </div>
