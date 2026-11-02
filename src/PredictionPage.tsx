@@ -95,11 +95,11 @@ export default function PredictionPage() {
         }
     }
 
-    const formattedProbability = result
-        ? result.probability < 0.0001
-            ? "< 0.01%"
-            : `${(result.probability * 100).toFixed(2)}%`
-        : "";
+    // const formattedProbability = result
+    //     ? result.probability < 0.0001
+    //         ? "< 0.01%"
+    //         : `${(result.probability * 100).toFixed(2)}%`
+    //     : "";
 
     return (
         <div className="page-wrapper">
